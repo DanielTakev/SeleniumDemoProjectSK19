@@ -1,0 +1,94 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Selenium Demo Suite" verbose="1">
+
+    <!--
+        Global Listeners registered at suite level.
+        These apply to ALL <test> tags within this suite.
+
+        Note: IAnnotationTransformer MUST be registered in testng.xml (not via @Listeners).
+    -->
+    <listeners>
+        <listener class-name="org.dani.listeners.SuiteListener"/>
+        <listener class-name="org.dani.listeners.CustomReporter"/>
+        <listener class-name="org.dani.listeners.AnnotationTransformerListener"/>
+    </listeners>
+
+    <!-- =============================================================== -->
+    <!--         EXISTING TESTS (POM, Page Factory, Data-Driven)         -->
+    <!-- =============================================================== -->
+
+    <test name="POM - Login Tests">
+        <classes>
+            <class name="org.dani.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="POM - Data Driven Login Tests">
+        <classes>
+            <class name="org.dani.tests.LoginDataDrivenTest"/>
+        </classes>
+    </test>
+
+    <test name="Page Factory - Login Tests">
+        <classes>
+            <class name="org.dani.tests.pagefactory.LoginPageFactoryTest"/>
+        </classes>
+    </test>
+
+    <!-- =============================================================== -->
+    <!--      ADVANCED SELENIUM EXAMPLES (JS, iFrame, DnD, etc.)         -->
+    <!-- =============================================================== -->
+
+    <test name="Advanced - JavaScript Executor">
+        <classes>
+            <class name="org.dani.tests.advanced.JavaScriptExecutorTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced - iFrame Handling">
+        <classes>
+            <class name="org.dani.tests.advanced.IFrameTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced - Drag and Drop">
+        <classes>
+            <class name="org.dani.tests.advanced.DragAndDropTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced - Keyboard Shortcuts">
+        <classes>
+            <class name="org.dani.tests.advanced.KeyboardShortcutsTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced - Screenshots">
+        <classes>
+            <class name="org.dani.tests.advanced.ScreenshotTest"/>
+        </classes>
+    </test>
+
+    <test name="Advanced - Browser Capabilities">
+        <classes>
+            <class name="org.dani.tests.advanced.BrowserCapabilitiesTest"/>
+        </classes>
+    </test>
+
+    <!-- =============================================================== -->
+    <!--               TESTNG LISTENERS DEMO                             -->
+    <!-- =============================================================== -->
+
+    <test name="Listeners - Demo Tests">
+        <classes>
+            <class name="org.dani.tests.listeners.ListenerDemoTest"/>
+        </classes>
+    </test>
+
+    <test name="Listeners - IHookable Demo">
+        <classes>
+            <class name="org.dani.tests.listeners.HookableDemoTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,5 +1,6 @@
 package org.dani.pages;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -25,6 +26,7 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
+    protected final By inputFileElement = By.cssSelector("input.file[type='file']");
     protected static final String baseUrl = "http://training.skillo-bg.com:4200";
 
     /**
@@ -76,6 +78,10 @@ public class BasePage {
      */
     protected WebElement waitAndVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    protected WebElement waitPresentInDom(By locator) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     /**
@@ -163,5 +169,9 @@ public class BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void uploadPicture(File file) {
+        waitPresentInDom(inputFileElement).sendKeys(file.getAbsolutePath());
     }
 }
